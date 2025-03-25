@@ -3,7 +3,6 @@ import sys
 from dotenv import load_dotenv
 import praw
 import pandas as pd
-import numpy as np
 
 #Load environment variable from .env
 dotenv_path =os.path.join(os.path.dirname(__file__),"..",".env")
@@ -11,12 +10,8 @@ load_dotenv(dotenv_path)
 
 # Options for extracting data from PRAW
 SUBREDDIT = "valueinvesting+stocks+wallstreetbets"
-SORT = "hot"
-TIME_FILTER = "week"
-LIMIT = None
-magnificent_7_tickers = ['AAPL', 'MSFT', 'NVDA', 'GOOG', 'AMZN', 'META', 'TSLA', 'GOOGL']
-magnificent_7_companies = ['Apple', 'Microsoft', 'Nvidia', 'Google', 'Amazon', 'Meta', 'Tesla']
-QUERY = ' OR '.join(magnificent_7_tickers + magnificent_7_companies)
+LIMIT = 10
+TIME_FILTER = "day"
 
 def main():
     reddit = reddit_api()
@@ -43,8 +38,7 @@ def reddit_api ():
 def get_subreddit_posts(reddit):
     "Get Subreddit Posts Object (PRAW Submission Class)"
     try:
-        subreddit_posts = reddit.subreddit(SUBREDDIT).search(
-            query=QUERY, sort=SORT, time_filter=TIME_FILTER, limit=LIMIT)
+        subreddit_posts = reddit.subreddit(SUBREDDIT).top(time_filter=TIME_FILTER ,limit=LIMIT)
     except Exception as e:
         print(f"Unable to retrieve posts. Error: {e}")
     return subreddit_posts
@@ -77,10 +71,7 @@ def posts_to_pandas(subreddit):
 def convert_to_csv(data):
     pass
 
-
-
-main()
-    
-
+if __name__ == "__main__":
+    main()
 
 
