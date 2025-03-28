@@ -10,7 +10,7 @@ load_dotenv(dotenv_path)
 
 # Options for extracting data from PRAW
 SUBREDDIT = "valueinvesting+stocks+wallstreetbets"
-LIMIT = 10
+LIMIT = 20
 TIME_FILTER = "day"
 
 def main():
@@ -19,7 +19,8 @@ def main():
     post_df = posts_to_pandas(subreddit)
     #Check rate limit
     print(reddit.auth.limits)
-    print(post_df.head())
+    print(post_df[['subreddit','title']])
+    return post_df
 
 def reddit_api ():
     "Connect to Reddit's API through PRAW"

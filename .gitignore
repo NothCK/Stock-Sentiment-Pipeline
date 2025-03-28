@@ -3,3 +3,4 @@
 # Virtual Environment 
 dep/
 airflow/__pycache__/
+.DS_Store
