@@ -9,21 +9,12 @@ dotenv_path =os.path.join(os.path.dirname(__file__),"..",".env")
 load_dotenv(dotenv_path)
 
 # Options for extracting data from PRAW
-SUBREDDIT = "valueinvesting+stocks+wallstreetbets"
-LIMIT = 20
+SUBREDDIT = "valueinvesting+stocks"
+LIMIT = 15
 TIME_FILTER = "day"
 
-def main():
-    reddit = reddit_api()
-    subreddit= get_subreddit_posts(reddit)
-    post_df = posts_to_pandas(subreddit)
-    #Check rate limit
-    print(reddit.auth.limits)
-    print(post_df[['subreddit','title']])
-    return post_df
-
 def reddit_api ():
-    "Connect to Reddit's API through PRAW"
+    #Connect to Reddit's API through PRAW
     try:
         reddit = praw.Reddit(
             client_id=os.getenv("REDDIT_CLIENT_ID"),
@@ -37,7 +28,7 @@ def reddit_api ():
     return reddit
 
 def get_subreddit_posts(reddit):
-    "Get Subreddit Posts Object (PRAW Submission Class)"
+    #Get Subreddit Posts Object (PRAW Submission Class)
     try:
         subreddit_posts = reddit.subreddit(SUBREDDIT).top(time_filter=TIME_FILTER ,limit=LIMIT)
     except Exception as e:
@@ -45,7 +36,7 @@ def get_subreddit_posts(reddit):
     return subreddit_posts
 
 def posts_to_pandas(subreddit):
-    "Extract each subreddit post and turn into Pandas Dataframe"
+    #Extract each subreddit post and turn into Pandas Dataframe
     dict_posts = []
     try:
         for post in subreddit:
@@ -71,6 +62,15 @@ def posts_to_pandas(subreddit):
 
 def convert_to_csv(data):
     pass
+
+def main():
+    reddit = reddit_api()
+    subreddit= get_subreddit_posts(reddit)
+    post_df = posts_to_pandas(subreddit)
+    #Check rate limit
+    print(reddit.auth.limits)
+    print(post_df[['subreddit','title']])
+    return post_df
 
 if __name__ == "__main__":
     main()
