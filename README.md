@@ -10,7 +10,8 @@ The output will be displayed as a Google Looker Studio Report
 
 ## Motivation
 - This project was initiated based on my strong interest in data engineering and the US stock market.
-- It gave me a great opportunity to further develop my skillset while working with a diverse range of data engineering tools. As a result, the project has been designed to exceed the minimal requirements, incorporating technologies such as dbt, Airflow, Docker, Apache Spark, and cloud-based storage solutions (BigQuery).
+- Learn modern data engineering practices, with some hands-on NLP components. As a result, the project has been designed to exceed the minimal requirements, incorporating technologies such as dbt, Airflow, Docker, Apache Spark, and cloud-based storage solutions (BigQuery).
+- Master data engineering fundamentals, thus I'm not aiming for huge scalability, but towards to a more modular, readable, and production-like code.
 
 ## Architecture
 
