@@ -25,7 +25,6 @@ def stock_ticker_finder(sentence:str) -> str | None:
     potential_ticker_matches = set(re.findall(ticker_pattern, sentence))
     for ticker_match in potential_ticker_matches:
         if ticker_match in stock_tickers and ticker_match not in ambiguous_tickers:
-            #print(f"Ticker match : {ticker_match}")
             return ticker_match
     #If no name check for company/stock name
     return stock_name_finder(sentence)
@@ -36,12 +35,10 @@ def stock_name_finder(sentence:str) -> str | None:
         if ent.label_ in ['ORG']:
             ent_text = ent.text.lower()
             if ent_text in name_to_ticker:
-                #print(f"Exact match: {ent_text}")
                 return name_to_ticker[ent_text]
             #Substring match
             for stock_name in stock_names:
                 if ent_text in stock_name and len(ent_text)> 3 and ent_text not in ambiguous_stock_names:
-                    #print(f"Name match : {ent_text}")
                     return name_to_ticker.get(stock_name)
     #If no match returns None
     return None
@@ -106,5 +103,4 @@ def sentiment_analyzed_post(df:pd.DataFrame) -> pd.DataFrame:
     
     structured_df = pd.DataFrame(series_of_posts)
     structured_df = structured_df.where(pd.notnull(structured_df), None)
-    print(structured_df[['subreddit','title','stock','sentiment']])
     return structured_df

@@ -10,6 +10,7 @@ def main():
 
     analyzed_reddit_post = sentiment_analysis.sentiment_analyzed_post(filtered_reddit_post)
 
+    print(analyzed_reddit_post[['subreddit','title','stock','sentiment']])
     return analyzed_reddit_post
 
 if __name__ == "__main__":

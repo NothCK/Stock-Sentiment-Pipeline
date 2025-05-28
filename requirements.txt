@@ -9,7 +9,3 @@ python-dotenv==1.0.1
 spacy==3.8.4
 vadersentiment ==  3.3.2
 nltk == 3.9.1
-
-transformers >= 4.43.0
-llama-index == 0.12.33
-huggingface-hub == 0.30.2

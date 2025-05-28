@@ -49,16 +49,4 @@ def filter_reddit(df:pd.DataFrame) -> pd.DataFrame:
     print('filtered_df :',filtered_df[['subreddit','title']])
     return filtered_df
     
-    """
-    filtered_posts = []
-
-    for index, row in df.iterrows():
-        result = does_post_contain_stocktickers(row, stock_names, stock_tickers ) # row is panda series
-        if result:      #if True add row/Series/post
-            filtered_posts.append(row)
-
-    filtered_df = pd.DataFrame(filtered_posts)
-    print('filtered_df :',filtered_df[['subreddit','title']])
-    return filtered_df
-    """
 
