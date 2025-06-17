@@ -1,5 +1,6 @@
 # Stock-Sentiment-Pipeline
 [English Version](../README.md)
+
 從 Reddit ([r/stocks](https://www.reddit.com/r/stocks/), [r/valueinvesting](https://www.reddit.com/r/valueinvesting/)) 擷取股票情緒資料的資料管線
 
 本專案旨在回答以下問題:
@@ -22,33 +23,15 @@
 ## 事實表結構
 
 ## 重現步驟
-### 設定 Reddit 帳戶
-1. 如果你還沒有 Reddit 帳號，請先建立一個。這是使用 Reddit API 擷取子版資料的必要條件。
-2. 建立帳號後，前往 [here](https://www.reddit.com/prefs/apps). 點選頁面底部的 `create another app...` 按鈕。填寫必要欄位並選擇 `web app`. 然後點擊 `create app`
-3. 建立完成後，在 `web app` 區塊下方，你會看到你的 client ID （位於應用程式名稱下方）以及 client secret。
-請妥善保存這些憑證——你將需要它們來在專案中透過 PRAW API 進行身份驗證。
+請依照下列步驟來設定資料處理流程。我已在可能的地方加入說明，若有需要，你也可以自行修改或優化.
+> **NOTE**: 本專案是在 M1 MacBook Pro 上開發的。如果你使用的是 Windows 或 Linux，遇到問題時可能需要調整某些元件。
 
-### 設定 Google Cloud 
-1. 建立一個 Google Cloud 帳戶
-2. 建立一個新的 Google Cloud [project](https://cloud.google.com/).
-3. 前往`IAM & Admin`→`Service Accounts`，點擊「建立服務帳戶」。請為該帳戶指派以下角色:
-* `Compute Admin`
-* `Service Account User`
-* `Storage Admin`
-* `Storage Object Admin`
-* `BigQuery Admin Roles`
-4. 服務帳戶建立完成後，點擊 `Manage Keys` 選單中的三個點，選擇 `Actions Menu`. 點擊 `Add Key` 下拉選單並選擇 `Create new key`. 系統會跳出提示要求你下載金鑰，請選擇 JSON 格式並下載金鑰檔案.
-5. 安裝 [Google Cloud CLI](https://cloud.google.com/sdk/docs/install-sdk)
-> **NOTE**: 本專案是在 M1 Macbook Pro 上開發。如果你使用的是 Windows 或 Linux，請依照各自平台指示操作.
-請執行 `gcloud init` 完成登入設定.
-6. 設定環境變數，指向剛下載的服務帳戶 JSON 金鑰檔案:
-`export GOOGLE_APPLICATION_CREDENTIALS=<path/to/your/service-account-authkeys>.json`
-7.更新權杖/登入環境，認證你的應用程式環境:
-`gcloud auth application-default login`
-8.確認你的專案已啟用以下 API:
-https://console.cloud.google.com/apis/library/iam.googleapis.com 
-https://console.cloud.google.com/apis/library/iamcredentials.googleapis.com 
-https://console.cloud.google.com/apis/library/compute.googleapis.com
-https://console.cloud.google.com/apis/library/bigquery.googleapis.com
-https://console.cloud.google.com/apis/library/dataplex.googleapis.com
+首先，請將此資料庫（repository）複製到你的主目錄中，然後依照步驟操作.
+```bash
+git clone https://github.com/NothCK/Stock-Sentiment-Pipeline.git
+cd Stock-Sentiment-Pipeline
+```
 
+1. [Reddit Configuration](instructions/Reddit.md)
+2. [Google Cloud Platform](instructions/google_cloud.md)
+3. 
