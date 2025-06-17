@@ -46,7 +46,6 @@ def filter_reddit(df:pd.DataFrame) -> pd.DataFrame:
     )
 
     filtered_df = df[boolean_post_contain_stock].copy()
-    print('filtered_df :',filtered_df[['subreddit','title']])
     return filtered_df
     
 

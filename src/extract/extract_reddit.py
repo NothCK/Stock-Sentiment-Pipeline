@@ -57,5 +57,4 @@ def extract_reddit(config:RedditConfig) -> pd.DataFrame:
 
     #Check rate limit
     print(reddit.auth.limits)
-    print(post_df[['subreddit','title']])
     return post_df

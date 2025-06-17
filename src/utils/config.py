@@ -14,5 +14,11 @@ class RedditConfig:
 
     #Options for extracting data from PRAW
     SUBREDDIT = "valueinvesting+stocks"
-    LIMIT = 45
+    LIMIT = 50
     TIME_FILTER = "day"
+
+class GCPConfig:
+    GCLOUD_BUCKET = os.getenv("BUCKET_NAME")
+    GCP_PROJECT = os.getenv("GCP_PROJECT_ID")
+    BQ_DATASET = os.getenv("BQ_DATASET")
+    BQ_TABLE = os.getenv("BQ_TABLE")
