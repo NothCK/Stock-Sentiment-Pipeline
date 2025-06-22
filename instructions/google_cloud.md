@@ -57,7 +57,7 @@ https://console.cloud.google.com/apis/library/compute.googleapis.com
 https://console.cloud.google.com/apis/library/bigquery.googleapis.com
 https://console.cloud.google.com/apis/library/dataplex.googleapis.com
 
-[Previous Step](Reddit.md)|[Next Step](../README.md)
+[Previous Step](Reddit.md) | [Next Step](../README.md)
 
 or
 
