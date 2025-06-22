@@ -1,4 +1,4 @@
-# Stock-Sentiment-Pipeline
+# Stock-Sentiment-Pipeline (In Progress)
 [Chinese Version](instructions/chinese-version.md)
 
 A data pipeline to extract stock sentiment data from Reddit ([r/stocks](https://www.reddit.com/r/stocks/), [r/valueinvesting](https://www.reddit.com/r/valueinvesting/))
